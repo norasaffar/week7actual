@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 
 const connection = require("../db/connection");
 
+const Book = require("../book/model");
+
 const port = process.env.PORT || 5001;
 
 const app = express();
@@ -14,23 +16,6 @@ app.use(express.json());
 
 connection();
 
-const bookSchema = new mongoose.Schema({
-    title:{
-        type: String,
-        required: true,
-        unique: true,
-    },
-    author:{
-        type: String,
-    },
-    genre:{
-        type: String,
-    },
-});
-
-//X
-
-const Book = mongoose.model("Book", bookSchema);
 
 // app.get('/:name', function (request, response){
 //    console.log(request.params);
