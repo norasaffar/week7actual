@@ -2,16 +2,15 @@ require ("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 
+const connection = require("../db/connection");
+
 const port = process.env.PORT || 5001;
 
 const app = express();
 
 app.use(express.json());
 
-const connection = async () => {
- await mongoose.connect(process.env.MONGODB_URI);
- console.log("connected to MongoDB on the cloud");
-};
+
 
 connection();
 
