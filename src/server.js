@@ -16,7 +16,7 @@ app.use(express.json());
 
 connection();
 
-app.use(bookRouter);
+app.use(bookRouter)
 
 
 // app.get('/:name', function (request, response){
@@ -24,76 +24,10 @@ app.use(bookRouter);
 //    response.send();
 
 // });
-
-
-
 //[books-array]//find index array method // Element// objects
 
-
-
-app.get("/book", async (request, response) => {
-    const books = await Book.find({});
-
-    const sucessResponse = {
-        message: "book found",
-        books: books,
-    };
-
-    response.send(sucessResponse);
-});
 //HTTP HYPER TEXT TRANSFER PROTOCOL
 
-
-
-
-app.get("/book/allBooks", (request, response) => {
-    const sucessResponse = {
-        message: "All Books",
-         book: books,
-    };
-
-    response.send(sucessResponse);
-});
-
-///////
-app.get('/book/:title', async (request, response) => {
-    const book = await Book.findOne({title: request.params.title});
-    
-    const sucessResponse = {
-        message: "One Book",
-         book: book,
-    };
-    
-    response.send(sucessResponse);
-
- });
-
-app.delete( "/book", async (request, response) => {
-    const book = await Book.deleteOne({title: request.body.title});
-
-  const sucessResponse = {
-     message: "book deleted",
-      book: book,
-};
-
-response.send(sucessResponse);
-}); 
-
-
-
-
-
-app.put("/book", async (request, response) => {
-    
-    const index = await Book.updateOne({title: request.body.title},{author: request.body.author}); 
-
-    const sucessResponse = {
-        message: "book author changed",
-        book: index,
-    };
-
-    response.send(sucessResponse);
-});
 
 
 
